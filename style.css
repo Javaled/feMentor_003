@@ -1,0 +1,216 @@
+:root {
+    --s-blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --bg-main: hsl(217, 54%, 11%);
+    --bg-card: hsl(216, 50%, 16%);
+    --line-b: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family:'Outfit', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+}
+
+.attribution {
+    color: var(--white);
+    position: absolute;
+    align-self: center;
+    bottom: 20px;
+}
+
+.attribution a {
+    color: var(--cyan);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-container {
+    width: 350px;
+    height: 70vh;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    margin: 0 15px;
+    padding: 25px;
+    background-color: var(--bg-card);
+    border-radius: 20px;
+}
+
+.figure-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.figure-container .figure-container-img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+
+/* Overlay Start */
+
+.figure-container-bg--overlay .figure-container-img--overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: var(--cyan);
+    border-radius: 15px;
+}
+
+.figure-container-bg--overlay .icon {
+    color: white;
+    position: absolute;
+    opacity: 0;
+    transition: .3s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.figure-container-bg--overlay:hover .figure-container-img--overlay {
+    opacity: .7;
+}
+
+.figure-container-bg--overlay:hover .icon {
+    opacity: 1;
+}
+
+/* Overlay End */
+
+.desc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.desc-container-title {
+    margin-top: 16px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.desc-container-title:hover {
+    color: var(--cyan);
+}
+
+.desc-container-text {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--s-blue);
+}
+
+.desc-container-info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line-b);
+}
+
+.desc-container-info .val {
+    display: flex;
+    margin: auto 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--cyan);
+}
+
+.desc-container-info .val span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background-image: url('./images/icon-ethereum.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.desc-container-info .time {
+    display: flex;
+    margin: auto 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--s-blue);
+}
+
+.desc-container-info .time span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background-image: url('./images/icon-clock.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.desc-container-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--s-blue);
+}
+
+.desc-container-author span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    border: 1px solid var(--white);
+    border-radius: 100%;
+    background-image: url('./images/image-avatar.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.desc-container-author a {
+    margin-left: 4px;
+    text-decoration: none;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.desc-container-author a:hover {
+    color: var(--cyan);
+}
+
+@media only screen and (min-width:420px) and (max-width:1440px) {
+    .section-container {
+        width: 300px;
+        min-height: 500px;
+        padding: 15px;
+    }
+}
